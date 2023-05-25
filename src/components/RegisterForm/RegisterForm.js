@@ -30,7 +30,7 @@ export const RegisterForm = () => {
     const password = form.elements.password.value.trim();
     const name = form.elements.name.value.trim();
     if (email === '' || password === '' || name === '') {
-      alert('Please fiil all fields');
+      alert('Please fill all fields');
       return;
     }
     dispatch(
