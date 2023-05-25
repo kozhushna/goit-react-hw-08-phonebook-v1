@@ -26,11 +26,18 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
+    const email = form.elements.email.value.trim();
+    const password = form.elements.password.value.trim();
+    const name = form.elements.name.value.trim();
+    if (email === '' || password === '' || name === '') {
+      alert('Please fiil all fields');
+      return;
+    }
     dispatch(
       register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        name,
+        email,
+        password,
       })
     );
     form.reset();

@@ -26,10 +26,16 @@ export const LoginForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
+    const email = form.elements.email.value.trim();
+    const password = form.elements.password.value.trim();
+    if (email === '' || password === '') {
+      alert('Please fill all fields');
+      return;
+    }
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email,
+        password,
       })
     );
     form.reset();
